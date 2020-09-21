@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -20,27 +19,7 @@ const Register = () => {
     if(password !== password2) {
       console.log('Passwords do not match');
     } else {
-      const newUser = {
-        name, 
-        email, 
-        password
-      }
-      try {
-        const Config = {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-
-        const body = JSON.stringify(newUser);
-
-        const res = await axios.post('/api/users', body, Config);
-        console.log(res.data);
-
-      } catch (error) {
-        console.error(error);
-        
-      }    
+      console.log('Success');
     }
   }
 
